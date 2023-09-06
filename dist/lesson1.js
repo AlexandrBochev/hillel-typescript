@@ -19,27 +19,27 @@
 // % npm i typescript
 // create tsconfig.json
 // % npx tsc --init --rootdir src --outdir dist
-let greetingText = "Hello world!";
+// % npx tsc --watch
+let greetingText = "Hello World";
 console.log(greetingText);
-const example1 = () => {
+function example1() {
     let isDone = false;
-    let age = 42;
-    let firstName = "Alexandr";
+    let age = 23;
+    let firstName = "John";
     let nothing = null;
     let notDefined = undefined;
-    let largeNumber = 100n;
+    let largeNUmber = 100n;
     let id = Symbol("id");
     let id2 = Symbol("id");
-};
-example1();
-const example2 = () => {
-    // Array, Date, RegExp, Map, Set
+}
+function example2() {
+    // Array, Date, RegExp, Map and Set
     let a = [];
     let pricesList = [1, 2, 3];
     let pricesList2 = [1, 2, 3];
     let todayDate = new Date();
     let regExp = /ab+c/;
-    let set = new Set([1, 2, 3, 4, 5]);
+    let set = new Set([1, 2, 3, 3, 2, 1]);
     class Queue {
         constructor() {
             this.data = [];
@@ -52,6 +52,5 @@ const example2 = () => {
         }
     }
     const queue = new Queue();
-    console.log(queue);
-};
+}
 example2();
