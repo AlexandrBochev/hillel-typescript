@@ -184,8 +184,13 @@ const exercise22 = () => {
     // Solution 1
     const printMessagesWithTimeout = async () => {
         for (let i = 1; i <= 4; i++) {
-            await delay(1000);
-            console.log(i.toString());
+            if (i === 3) {
+                console.log(i.toString());
+            }
+            else {
+                await delay(1000);
+                console.log(i.toString());
+            }
         }
     };
     printMessagesWithTimeout();
@@ -195,7 +200,6 @@ const exercise22 = () => {
     //   console.log("1")
     //   await delay(1000)
     //   console.log("2")
-    //   await delay(1000)
     //   console.log("3")
     //   await delay(1000)
     //   console.log("4")
@@ -203,90 +207,4 @@ const exercise22 = () => {
     // printMessagesWithTimeout2()
 };
 exercise22();
-//Done -----------------------------------------------------------------------------------------------------
-//========================================== ✩ Extra Tasks ✩ ==============================================
-// ✔ use type narrowing to print the passanger info
-// ✔ TODO: define THuman type with properties name, age, driverLicenseId
-// ✔ TODO: define TAnimal type with properties name, age, species
-// ✔ TODO: define TPassanger type as union of THuman and TAnimal
-// ✔ TODO: annotate the function to accept TPassanger type
-// ✔ TODO: use type narrowing to print the passanger info
-// ✔ TODO: print driverLicenseId if passanger is human
-// ✔ TODO: print species if passanger is animal
-// ✔ TODO: add missing properties to human and animal objects
-// ✔ TODO: Implement function printPassangerInfo using instanceof operator to narrow the type of the passanger
-// ✔ TODO: Add implementation of the printPassangerInfo using property check to narrow the type of the passanger
-// ✔ TODO: compile and run the code
-const exercise23 = () => {
-    // Classes
-    class Human {
-        constructor(name, age, driverLicenseId) {
-            this.name = name;
-            this.age = age;
-            this.driverLicenseId = driverLicenseId;
-        }
-    }
-    class Animal {
-        constructor(name, age, species) {
-            this.name = name;
-            this.age = age;
-            this.species = species;
-        }
-    }
-    // Passengers
-    const human = {
-        name: "Frank",
-        age: 23,
-        driverLicenseId: "DL12345"
-    };
-    const animal = {
-        name: "Rexy",
-        age: 6.8e7,
-        species: "Tyrannosaurus"
-    };
-    const human2 = new Human("Chester", 32, "DL54321");
-    const animal2 = new Animal("Sharky", 2.1e7, "Megalodon");
-    // Print
-    const printPassengerInfo = (passenger) => {
-        console.log(`Name: ${passenger.name}`);
-        console.log(`Age: ${passenger.age}`);
-        if (passenger === human || // Using human check to narrow the type of the passenger
-            passenger instanceof Human || // Using instanceof operator to narrow the type of the passenger
-            'driverLicenseId' in passenger // Using property check to narrow the type of the passenger
-        ) {
-            console.log(`Driver license: ${passenger.driverLicenseId}`);
-        }
-        if (passenger === animal || // Using animal check to narrow the type of the passenger
-            passenger instanceof Animal || // Using instanceof operator to narrow the type of the passenger
-            'species' in passenger // Using property check to narrow the type of the passenger
-        ) {
-            console.log(`Species: ${passenger.species}`);
-        }
-    };
-    printPassengerInfo(human);
-    printPassengerInfo(animal);
-    printPassengerInfo(human2);
-    printPassengerInfo(animal2);
-};
-exercise23();
-//Done -----------------------------------------------------------------------------------------------------
-// ✔ use discriminated union to narrow the type of the object
-// ✔ TODO: add type property to TBlogMessage, TBlogImage, TBlogComment with literal type of 'message', 'image', 'comment'
-// ✔ TODO: use discriminated union to narrow the type of the object
-// ✔ TODO: add missing type property to the objects
-// ✔ TODO: compile and run the code
-const exercise24 = () => {
-    const printBlogPost = (post) => {
-        if (post.type === "comment")
-            console.log("comment: ", post.text);
-        if (post.type === "image")
-            console.log("image: ", post.url);
-        if (post.type === "message")
-            console.log("message: ", post.text);
-    };
-    printBlogPost({ type: "message", text: "abc" });
-    printBlogPost({ type: "image", url: "abc" });
-    printBlogPost({ type: "comment", text: "abc", messageId: "123" });
-};
-exercise24();
 //Done -----------------------------------------------------------------------------------------------------
