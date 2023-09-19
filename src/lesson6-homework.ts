@@ -207,31 +207,3 @@ const exercise34 = () => {
 exercise34()
 
 //Done -----------------------------------------------------------------------------------------------------
-
-//========================================== ✩ Extra Task ✩ ==============================================
-
-// ✔ Use double assertion
-// ✔ TODO:Create two types: TPoint2D and TPoint3D
-// ✔ TODO: add definition for x and y props for coordinates
-// ✔ TODO: add definition for x, y and z props for coordinates
-// ✔ TODO: fix the error by adding double assertion
-
-const exercise35 = () => {
-  interface TPoint2D {
-    x: number
-    y: number
-  }
-  interface TPoint3D {
-    x: number
-    y: number
-    z: number
-  }
-
-  let point2D: TPoint2D = { x: 1, y: 2 }
-  let point3D: TPoint3D = { x: 1, y: 2, z: 3 }
-
-  point3D = point2D as TPoint3D
-}
-exercise35()
-
-//Done -----------------------------------------------------------------------------------------------------
