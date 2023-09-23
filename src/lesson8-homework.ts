@@ -399,3 +399,5 @@ function exerciseExtra1() {
   console.log(areAnagrams("abc", "cbd")) // false
 }
 exerciseExtra1()
+
+// Done -----------------------------------------------------------------------------------------------------
