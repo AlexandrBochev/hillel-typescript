@@ -390,13 +390,13 @@ function exerciseExtra1() {
     return sortedStr(cleanStr(s1)) === sortedStr(cleanStr(s2))
   }
 
-  console.log(areAnagrams("listen", "silent")) // true
-  console.log(areAnagrams("listen", "silenta")) // false
-  console.log(areAnagrams("LiSten", "silENt")) // true
-  console.log(areAnagrams("lissten", "sileent")) // false
-  console.log(areAnagrams("abc", "cba")) // true
-  console.log(areAnagrams("a bc", "cb a")) // true
-  console.log(areAnagrams("abc", "cbd")) // false
+  console.assert(areAnagrams("listen", "silent") === true)
+  console.assert(areAnagrams("listen", "silenta") === false)
+  console.assert(areAnagrams("LiSten", "silENt") === true)
+  console.assert(areAnagrams("lissten", "sileent") === false)
+  console.assert(areAnagrams("abc", "cba") === true)
+  console.assert(areAnagrams("a bc", "cb a") === true)
+  console.assert(areAnagrams("abc", "cbd") === false)
 }
 exerciseExtra1()
 

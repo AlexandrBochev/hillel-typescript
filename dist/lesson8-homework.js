@@ -254,7 +254,7 @@ exercise46();
 function exerciseExtra1() {
     function areAnagrams(s1, s2) {
         const cleanStr = (str) => str.replace(/\s/g, '').toLowerCase();
-        // Solution 1 (from exercise 33) -------------------------------------------
+        // Solution 1 (from exercise 33)
         // const charCountObj = (str: string) => {
         //   let charCount: { [key: string]: number } = {}
         //   for (const char of str) charCount[char] ? charCount[char]++ : charCount[char] = 1
@@ -272,16 +272,17 @@ function exerciseExtra1() {
         //   }
         // }
         // return true
-        // Solution 2 -------------------------------------------------------------
+        // Solution 2 (the best way in my opinion)
         const sortedStr = (str) => str.split('').sort().join('');
         return sortedStr(cleanStr(s1)) === sortedStr(cleanStr(s2));
     }
-    console.log(areAnagrams("listen", "silent")); // true
-    console.log(areAnagrams("listen", "silenta")); // false
-    console.log(areAnagrams("LiSten", "silENt")); // true
-    console.log(areAnagrams("lissten", "sileent")); // false
-    console.log(areAnagrams("abc", "cba")); // true
-    console.log(areAnagrams("a bc", "cb a")); // true
-    console.log(areAnagrams("abc", "cbd")); // false
+    console.assert(areAnagrams("listen", "silent") === true);
+    console.assert(areAnagrams("listen", "silenta") === false);
+    console.assert(areAnagrams("LiSten", "silENt") === true);
+    console.assert(areAnagrams("lissten", "sileent") === false);
+    console.assert(areAnagrams("abc", "cba") === true);
+    console.assert(areAnagrams("a bc", "cb a") === true);
+    console.assert(areAnagrams("abc", "cbd") === false);
 }
 exerciseExtra1();
+// Done -----------------------------------------------------------------------------------------------------
