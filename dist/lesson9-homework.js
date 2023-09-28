@@ -1,5 +1,6 @@
 "use strict";
-// ✔ Use mappping types
+// ✔ Use mapping types
+Object.defineProperty(exports, "__esModule", { value: true });
 function exercise47() {
     const point = {
         x: 1,
@@ -9,7 +10,7 @@ function exercise47() {
 }
 exercise47();
 // Done -----------------------------------------------------------------------------------------------------
-// ✔ Use mappping types modifiers
+// ✔ Use mapping types modifiers
 function exercise48() {
     const p1 = { x: 10 };
     const p2 = { x: 10, y: null };
@@ -76,38 +77,56 @@ function exerciseExtra2() {
     * ✔ - for multiples of five, print Buzz (instead of the number)
     * ✔ - for multiples of both three and five, print FizzBuzz (instead of the number)
     */
-    function fizzBuzz() {
+    const fizzBuzzValue = (num) => {
+        if (num % 3 === 0 && num % 5 === 0) {
+            return "FizzBuzz";
+        }
+        else if (num % 3 === 0) {
+            return "Fizz";
+        }
+        else if (num % 5 === 0) {
+            return "Buzz";
+        }
+        return num;
+    };
+    let arrStrOrNum = [];
+    const fizzBuzz = () => {
         for (let i = 1; i <= 100; i++) {
-            if (i % 3 === 0 && i % 5 === 0) {
-                console.log("FizzBuzz");
-                continue;
+            console.log(fizzBuzzValue(i));
+            arrStrOrNum.push(fizzBuzzValue(i));
+        }
+    };
+    fizzBuzz();
+    // ✔ TODO: convert fizzBuzz to generate a string instead of printing to console
+    const fizzBuzzToString = () => {
+        let str = '';
+        for (let i = 1; i <= 100; i++) {
+            if (typeof fizzBuzzValue(i) === 'string') {
+                str += fizzBuzzValue(i);
             }
-            else if (i % 3 === 0) {
-                console.log("Fizz");
-                continue;
+            else {
+                str += fizzBuzzValue(i).toString();
             }
-            else if (i % 5 === 0) {
-                console.log("Buzz");
-                continue;
-            }
-            console.log(i);
+            i < 100 && (str += ' ');
+        }
+        return str;
+    };
+    fizzBuzzToString();
+    // ✔ TODO: write a test to validate fizzBuzz output using console.assert
+    const arrStr = fizzBuzzToString().split(' ');
+    for (let i = 0; i < arrStr.length; i++) {
+        if (arrStr[i] === 'FizzBuzz') {
+            console.assert(arrStrOrNum[i] === 'FizzBuzz');
+        }
+        else if (arrStr[i] === 'Fizz') {
+            console.assert(arrStrOrNum[i] === 'Fizz');
+        }
+        else if (arrStr[i] === 'Buzz') {
+            console.assert(arrStrOrNum[i] === 'Buzz');
+        }
+        else {
+            console.assert(arrStrOrNum[i] === Number(arrStr[i]));
         }
     }
-    fizzBuzz();
-    /**
-     * 1
-     * 2
-     * Fizz
-     * 4
-     * Buzz
-     * ...
-     */
-    // TODO: convert fizzBuzz to generate a string instead of printing to console
-    function fizzBuzzToString() {
-        // TODO: add your code here
-    }
-    fizzBuzzToString();
-    // TODO: write a test to validate fizzBuzz output using console.assert
-    console.assert(false, "ok");
 }
 exerciseExtra2();

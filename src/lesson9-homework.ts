@@ -1,4 +1,6 @@
-// ✔ Use mappping types
+// ✔ Use mapping types
+
+import { type } from "os";
 
 function exercise47() {
   // ✔ implement mapped type that takes two types T and K
@@ -19,7 +21,7 @@ exercise47();
 
 // Done -----------------------------------------------------------------------------------------------------
 
-// ✔ Use mappping types modifiers
+// ✔ Use mapping types modifiers
 
 function exercise48() {
   // ✔ implement mapped type that makes all properties of T optional and nullable
@@ -125,37 +127,59 @@ function exerciseExtra2() {
   * ✔ - for multiples of both three and five, print FizzBuzz (instead of the number)
   */
 
-  function fizzBuzz() {
+  type TfizzBuzzValue = "FizzBuzz" | "Fizz" | "Buzz" | number
+
+  const fizzBuzzValue = (num: number): TfizzBuzzValue => {
+    if (num % 3 === 0 && num % 5 === 0) {
+      return "FizzBuzz"
+    } else if (num % 3 === 0) {
+      return "Fizz"
+    } else if (num % 5 === 0) {
+      return "Buzz"
+    }
+    return num
+  }
+
+  let arrStrOrNum: (string | number)[] = []
+
+  const fizzBuzz = () => {
     for (let i = 1; i <= 100; i++) {
-      if (i % 3 === 0 && i % 5 === 0) {
-        console.log("FizzBuzz")
-        continue
-      } else if (i % 3 === 0) {
-        console.log("Fizz")
-        continue
-      } else if (i % 5 === 0) {
-        console.log("Buzz")
-        continue
-      }
-      console.log(i)
+      console.log(fizzBuzzValue(i))
+      arrStrOrNum.push(fizzBuzzValue(i))
     }
   }
-  fizzBuzz();
-  /**
-   * 1
-   * 2
-   * Fizz
-   * 4
-   * Buzz
-   * ...
-   */
+  fizzBuzz()
+  
+  // ✔ TODO: convert fizzBuzz to generate a string instead of printing to console
+  const fizzBuzzToString = () => {
+    let str = ''
 
-  // TODO: convert fizzBuzz to generate a string instead of printing to console
-  function fizzBuzzToString() {
-    // TODO: add your code here
+    for (let i = 1; i <= 100; i++) {
+      if (typeof fizzBuzzValue(i) === 'string') {
+        str += fizzBuzzValue(i) 
+      } else {
+        str += fizzBuzzValue(i).toString()
+      }
+      i < 100 && (str += ' ')
+    }
+
+    return str
   }
-  fizzBuzzToString();
-  // TODO: write a test to validate fizzBuzz output using console.assert
-  console.assert(false, "ok" );
+  fizzBuzzToString()
+  
+  // ✔ TODO: write a test to validate fizzBuzz output using console.assert
+  const arrStr: string[] = fizzBuzzToString().split(' ')
+  
+  for (let i = 0; i < arrStr.length; i++) {
+    if (arrStr[i] === 'FizzBuzz') {
+      console.assert(arrStrOrNum[i] === 'FizzBuzz')
+    } else if (arrStr[i] === 'Fizz') {
+      console.assert(arrStrOrNum[i] === 'Fizz')
+    } else if (arrStr[i] === 'Buzz') {
+      console.assert(arrStrOrNum[i] === 'Buzz')
+    } else {
+      console.assert(arrStrOrNum[i] === Number(arrStr[i]))
+    }
+  }
 }
-exerciseExtra2();
+exerciseExtra2()
