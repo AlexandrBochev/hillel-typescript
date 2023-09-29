@@ -81,8 +81,6 @@ function exercise53() {
     Blue = 4,
   }
 
-  
-
   function getColor(color: number): string {
     let result = ""
 
