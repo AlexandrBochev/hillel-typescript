@@ -120,7 +120,19 @@ const calculator = new Calculator()
 // calculator.undo()
 // console.log(calculator.value)
 
-calculator.executeCommand(new AddThenMultiplyCommand(10, 2))
-console.log(calculator.value)
-calculator.undo()
-console.log(calculator.value)
+// calculator.executeCommand(new AddThenMultiplyCommand(10, 2))
+// console.log(calculator.value)
+// calculator.undo()
+// console.log(calculator.value)
+
+const cearchInsert = (nums: number[], target: number) => {
+  let left = 0
+  let right = nums.length - 1
+  while (left <= right) {
+    const mid = Math.floor((right - left) / 2) + left
+    target > nums[mid] ? left = mid + 1 : right = mid -1
+  }
+  return left
+}
+
+console.log(cearchInsert([1, 3, 5, 6, 8, 12, 15, 16, 17, 23, 25, 29, 31, 32, 35, 38, 39, 42], 31))
